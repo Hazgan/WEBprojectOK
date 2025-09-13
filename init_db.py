@@ -14,5 +14,27 @@ cur = conn.cursor()
 cur.execute("DROP TABLE IF EXISTS users")
 cur.execute("DROP TABLE IF EXISTS contacts")
 
-cur.execute("""
-CREATE TABLE users (
+cur.execute('''
+CREATE TABLE users (id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username TEXT UNIQUE NOT NULL,
+    password TEXT NOT NULL
+)
+''')
+
+cur.execute('''
+CREATE TABLE contacts (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    message TEXT NOT NULL
+)
+''')
+
+# Админ
+username = os.getenv("ADMIN_USERNAME", "admin")
+password = generate_password_hash(os.getenv("ADMIN_PASSWORD", "adminchik123"))
+cur.execute("INSERT INTO users (username, password) VALUES (?, ?)", (username, password))
+
+conn.commit()
+conn.close()
+
+print("База инициализирована. Админ:", username)
