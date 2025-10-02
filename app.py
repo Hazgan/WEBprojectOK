@@ -33,13 +33,21 @@ def index():
 def about():
     return render_template("about.html")
 
+@app.route("/courses")
+def courses():
+    return render_template("courses.html")
+
 @app.route("/contact", methods=["GET", "POST"])
 def contact():
     if request.method == "POST":
         name = request.form["name"]
+        email = request.form["email"]
+        phone = request.form["phone"]
+        course = request.form["course"]
         message = request.form["message"]
         db = get_db()
-        db.execute("INSERT INTO contacts (name, message) VALUES (?, ?)", (name, message))
+        db.execute("INSERT INTO contacts (name, email, phone, course, message) VALUES (?, ?, ?, ?, ?)",
+                  (name, email, phone, course, message))
         db.commit()
         return redirect(url_for("contact"))
     return render_template("contact.html")
@@ -67,14 +75,19 @@ def login():
             return redirect(url_for("analytics"))
     return render_template("login.html")
 
+@app.route("/logout")
+def logout():
+    session.clear()
+    return redirect(url_for("index"))
+
 @app.route("/analytics")
 def analytics():
     if "user_id" not in session:
         return redirect(url_for("login"))
     db = get_db()
     users = db.execute("SELECT id, username FROM users").fetchall()
-    contacts = db.execute("SELECT name, message FROM contacts").fetchall()
+    contacts = db.execute("SELECT name, email, phone, course, message FROM contacts").fetchall()
     return render_template("analytics.html", users=users, contacts=contacts)
 
-if __name__ == '__main__':  # Изменено с 'main' на '__main__'
+if __name__ == '__main__':
     app.run(debug=True)

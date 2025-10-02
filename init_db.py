@@ -25,7 +25,10 @@ cur.execute('''
 CREATE TABLE contacts (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL,
-    message TEXT NOT NULL
+    email TEXT NOT NULL,
+    phone TEXT,
+    course TEXT NOT NULL,
+    message TEXT
 )
 ''')
 

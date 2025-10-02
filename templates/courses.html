@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}Курсы Power BI{% endblock %}
+{% block content %}
+<div class="container">
+    <h1>Наши курсы Power BI</h1>
+
+    <div class="courses-grid">
+        <div class="course-card">
+            <div class="course-icon">
+                <i class="fas fa-baby"></i>
+            </div>
+            <h3>Power BI для новичков</h3>
+            <p>Идеальный старт для тех, кто только начинает свой путь в мире аналитики. Мы научим вас основам работы с Power BI Desktop, созданию первых отчетов и дашбордов.</p>
+            <div class="course-price">от 25 000 ₽</div>
+            <a href="{{ url_for('contact') }}" class="btn">Записаться</a>
+        </div>
+
+        <div class="course-card">
+            <div class="course-icon">
+                <i class="fas fa-user-graduate"></i>
+            </div>
+            <h3>Продвинутый Power BI</h3>
+            <p>Для тех, кто хочет углубиться в возможности Power BI. Узнаете о сложных DAX-выражениях, работе с большими объемами данных и создании профессиональных отчетов.</p>
+            <div class="course-price">от 45 000 ₽</div>
+            <a href="{{ url_for('contact') }}" class="btn">Записаться</a>
+        </div>
+
+        <div class="course-card">
+            <div class="course-icon">
+                <i class="fas fa-chart-line"></i>
+            </div>
+            <h3>Power BI для бизнес-аналитики</h3>
+            <p>Курс для тех, кто работает в бизнес-аналитике. Научитесь использовать Power BI для принятия стратегических решений и создания аналитических отчетов для руководства.</p>
+            <div class="course-price">от 60 000 ₽</div>
+            <a href="{{ url_for('contact') }}" class="btn">Записаться</a>
+        </div>
+
+        <div class="course-card">
+            <div class="course-icon">
+                <i class="fab fa-python"></i>
+            </div>
+            <h3>Power BI + Python</h3>
+            <p>Интеграция Power BI с Python для расширения возможностей аналитики. Научитесь использовать Python для обработки данных и создания мощных аналитических решений.</p>
+            <div class="course-price">от 75 000 ₽</div>
+            <a href="{{ url_for('contact') }}" class="btn">Записаться</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

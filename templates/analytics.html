@@ -1,18 +1,42 @@
 {% extends "base.html" %}
 {% block title %}Аналитика{% endblock %}
 {% block content %}
-<h1>Аналитика</h1>
-<h2>Пользователи</h2>
-<ul>
-{% for user in users %}
-    <li>{{ user['id'] }} - {{ user['username'] }}</li>
-{% endfor %}
-</ul>
+<div class="container">
+    <h1>Аналитика</h1>
 
-<h2>Сообщения</h2>
-<ul>
-{% for msg in contacts %}
-    <li><b>{{ msg['name'] }}</b>: {{ msg['message'] }}</li>
-{% endfor %}
-</ul>
+    <h2>Заявки на обучение</h2>
+    <div class="analytics-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Имя</th>
+                    <th>Email</th>
+                    <th>Телефон</th>
+                    <th>Курс</th>
+                    <th>Сообщение</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for msg in contacts %}
+                <tr>
+                    <td>{{ msg['id'] }}</td>
+                    <td>{{ msg['name'] }}</td>
+                    <td>{{ msg['email'] }}</td>
+                    <td>{{ msg['phone'] }}</td>
+                    <td>{{ msg['course'] }}</td>
+                    <td>{{ msg['message'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <h2>Пользователи</h2>
+    <ul>
+        {% for user in users %}
+        <li>{{ user['id'] }} - {{ user['username'] }}</li>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock %}
