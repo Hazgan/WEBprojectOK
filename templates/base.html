@@ -7,6 +7,21 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Top.Mail.Ru counter -->
+    <script type="text/javascript">
+    var _tmr = window._tmr || (window._tmr = []);
+    _tmr.push({id: "3715194", type: "pageView", start: (new Date()).getTime()});
+    (function (d, w, id) {
+      if (d.getElementById(id)) return;
+      var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+      ts.src = "https://top-fwz1.mail.ru/js/code.js";
+      var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+      if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+    })(document, window, "tmr-code");
+    </script>
+    <noscript><div><img src="https://top-fwz1.mail.ru/counter?id=3715194;js=na" style="position:absolute;left:-9999px;" alt="Top.Mail.Ru" /></div></noscript>
+    <!-- /Top.Mail.Ru counter -->
+
 </head>
 <body>
     <header class="header">
@@ -35,6 +50,11 @@
     </main>
 
     {% include "liveinternetcounter.html" %}
+    <!-- Top.Mail.Ru logo -->
+    <a href="https://top-fwz1.mail.ru/jump?from=3715194">
+    <img src="https://top-fwz1.mail.ru/counter?id=3715194;t=489;l=1" height="31" width="88" alt="Top.Mail.Ru" style="border:0;" /></a>
+    <!-- /Top.Mail.Ru logo -->
+
 
     <footer class="footer">
         <div class="container">
